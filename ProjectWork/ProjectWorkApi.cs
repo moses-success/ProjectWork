@@ -51,27 +51,26 @@ namespace ProjectWork
 
             StringBuilder str = new StringBuilder();
 
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                str.Append("Number Plate :\n");
-                str.AppendLine(ds.Tables[0].Rows[i]["NumberPlate"].ToString());
+          
+                str.Append("Number Plate :");
+                str.Append(ds.Tables[0].Rows[0]["NumberPlate"].ToString());
                 str.AppendLine(Environment.NewLine);
                 str.Append("OwnerName :");
-                str.Append(ds.Tables[0].Rows[i]["OwnerName"].ToString());
+                str.Append(ds.Tables[0].Rows[0]["OwnerName"].ToString());
                 str.AppendLine(Environment.NewLine);
                 str.Append("Chasis Number :");
-                str.Append(ds.Tables[0].Rows[i]["ChassisNumber"].ToString());
+                str.Append(ds.Tables[0].Rows[0]["ChassisNumber"].ToString());
                 str.AppendLine(Environment.NewLine);
                 str.Append("Model :");
-                str.Append(ds.Tables[0].Rows[i]["Model"].ToString());
+                str.Append(ds.Tables[0].Rows[0]["Model"].ToString());
                 str.AppendLine(Environment.NewLine);
                 str.Append("Colors :");
-                str.Append(ds.Tables[0].Rows[i]["Colors"].ToString());
+                str.Append(ds.Tables[0].Rows[0]["Colors"].ToString());
                 str.AppendLine(Environment.NewLine);
                 str.Append("Cartype :");
-                str.Append(ds.Tables[0].Rows[i]["Cartype"].ToString());
+                str.Append(ds.Tables[0].Rows[0]["Cartype"].ToString());
                 str.AppendLine();
-            }
+            
 
             return str.ToString();
         }
@@ -80,8 +79,8 @@ namespace ProjectWork
 
         public void sendmessage(string subject, string message, string recepientNumber)
         {
-            const string clientId = "user233";
-            const string clientSecret = "password23";
+            const string clientId = "";
+            const string clientSecret = "";
             try
             {
                 var host = new ApiHost(new BasicAuth(clientId, clientSecret));
@@ -97,12 +96,12 @@ namespace ProjectWork
                     var ex = e as HttpRequestException;
                     if (ex != null && ex.HttpResponse != null)
                     {
-                        Console.WriteLine("Error Status Code " + ex.HttpResponse.Status);
+                        //Console.WriteLine("Error Status Code " + ex.HttpResponse.Status);
                     }
                 }
                 throw;
             }
-            Console.ReadKey();
+          //  Console.ReadKey();
         }
     }
 }

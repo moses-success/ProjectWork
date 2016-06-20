@@ -24,20 +24,27 @@ namespace ProjectWork
 
                 if (keyword.ToUpper() == "INFO")
                 {
-                    numberPlate = context.Request.QueryString["fulltext"].ToString().Split(new char[0])[1];
+                    numberPlate = context.Request.QueryString["fulltext"].ToString().Split(null)[1];
 
                 }
 
 
-             //  string senderNumber = context.Request.QueryString["From"].ToString();
+            string senderNumber = context.Request.QueryString["From"].ToString();
 
 
 
                 SendMessage send = new SendMessage();
+               
                 var result = send.getAllDetail(numberPlate);
-              // send.sendmessage("Deplaves", result, senderNumber);
-                context.Response.Write(result);
-
+                var result =
+                if(result!=null)
+                {
+                    send.sendmessage("Deplaves", result, senderNumber);
+                } else
+                {
+                    send.sendmessage("Deplaves", , senderNumber);
+                }               
+            
             }
         }
         public bool IsReusable
