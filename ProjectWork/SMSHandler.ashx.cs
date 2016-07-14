@@ -29,20 +29,24 @@ namespace ProjectWork
                 }
 
 
-            string senderNumber = context.Request.QueryString["From"].ToString();
+          //  string senderNumber = context.Request.QueryString["From"].ToString();
 
 
 
                 SendMessage send = new SendMessage();
                
                 var result = send.getAllDetail(numberPlate);
-                var result =
-                if(result!=null)
-                {
-                    send.sendmessage("Deplaves", result, senderNumber);
+
+          
+               
+               if(result!=null)
+               {
+                    context.Response.Write(result);
+                    //    send.sendmessage("Deplaves", result, senderNumber);
                 } else
                 {
-                    send.sendmessage("Deplaves", , senderNumber);
+                    context.Response.Write("Number NOT FOUND");
+                    //    send.sendmessage("Deplaves","Number NOT FOUND" , senderNumber);
                 }               
             
             }

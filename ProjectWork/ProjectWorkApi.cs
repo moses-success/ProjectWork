@@ -37,7 +37,7 @@ namespace ProjectWork
 
         public string getAllDetail(string NumberPlate)
         {
-            cmd = Commander("[dbo].[getnumberplates]");
+            cmd = Commander("spGetNumberplate");
             cmd.Parameters.AddWithValue("@NumberPlate", NumberPlate);
 
 
